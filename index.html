@@ -7,14 +7,37 @@
       href="https://cesium.com/downloads/cesiumjs/releases/1.68/Build/Cesium/Widgets/widgets.css"
       rel="stylesheet"
     />
+    <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
+
   <body>
+    Object to track:
+    <p>
+      <button type="button" onclick="obj(1)">Planes</button><br />
+      <button type="button" onclick="obj(2)">Satellites</button><br />
+    </p>
     <div id="cesiumContainer" style="width: 700px; height:400px"></div>
     <script>
       Cesium.Ion.defaultAccessToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0Mjg2MWMxMS1jOWExLTRjNzctODcyYS1jOTAxMTdlYmM0ZjYiLCJpZCI6MjU2ODYsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1ODY0MDU3MjB9.LZF2OJLOQa9qyjuDzwWGpdZ3S-0TzhruwZsXO0aWzjI";
       var viewer = new Cesium.Viewer("cesiumContainer");
-      var promise = Cesium.IonResource.fromAssetId(89516)//89516 for satellite, 89497 for vehicle/plane
+      function obj(id) {
+        if (id == 1) {
+          var promise = Cesium.IonResource.fromAssetId(89497) //89516 for satellite, 89497 for vehicle/plane
+            .then(function(resource) {
+              return Cesium.CzmlDataSource.load(resource);
+            })
+            .then(function(dataSource) {
+              return viewer.dataSources.add(dataSource);
+            })
+            .then(function(dataSource) {
+              return viewer.zoomTo(dataSource);
+            })
+            .otherwise(function(error) {
+              console.log(error);
+            });
+        } else {
+        var promise = Cesium.IonResource.fromAssetId(89516) //89516 for satellite, 89497 for vehicle/plane
         .then(function(resource) {
           return Cesium.CzmlDataSource.load(resource);
         })
@@ -27,6 +50,8 @@
         .otherwise(function(error) {
           console.log(error);
         });
+        }
+      }
     </script>
   </body>
 </html>
