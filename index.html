@@ -8,15 +8,25 @@
       rel="stylesheet"
     />
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="script.js"></script>
   </head>
 
   <body>
-    Object to track:
-    <p>
-      <button type="button" onclick="obj(1)">Planes</button><br />
-      <button type="button" onclick="obj(2)">Satellites</button><br />
-    </p>
-    <div id="cesiumContainer" style="width: 700px; height:400px"></div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <h2>
+      <form action="/action_page.php">
+        <label for="gsearch">Search Object ID:</label>
+        <input type="search" id="gsearch" name="gsearch"><br>
+        <input type="submit"><br><br>
+      </form>
+      Objects to track:<br>
+        <button type="button" onclick="obj(1)">Plane</button><br>
+        <button type="button" onclick="obj(2)">Satellite</button>
+      </h2>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Open Menu</span>
+    <div id="cesiumContainer" style="width: 80%; height:800px"></div>
     <script>
       Cesium.Ion.defaultAccessToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0Mjg2MWMxMS1jOWExLTRjNzctODcyYS1jOTAxMTdlYmM0ZjYiLCJpZCI6MjU2ODYsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1ODY0MDU3MjB9.LZF2OJLOQa9qyjuDzwWGpdZ3S-0TzhruwZsXO0aWzjI";
@@ -37,19 +47,19 @@
               console.log(error);
             });
         } else {
-        var promise = Cesium.IonResource.fromAssetId(89516) //89516 for satellite, 89497 for vehicle/plane
-        .then(function(resource) {
-          return Cesium.CzmlDataSource.load(resource);
-        })
-        .then(function(dataSource) {
-          return viewer.dataSources.add(dataSource);
-        })
-        .then(function(dataSource) {
-          return viewer.zoomTo(dataSource);
-        })
-        .otherwise(function(error) {
-          console.log(error);
-        });
+          var promise = Cesium.IonResource.fromAssetId(89516) //89516 for satellite, 89497 for vehicle/plane
+            .then(function(resource) {
+              return Cesium.CzmlDataSource.load(resource);
+            })
+            .then(function(dataSource) {
+              return viewer.dataSources.add(dataSource);
+            })
+            .then(function(dataSource) {
+              return viewer.zoomTo(dataSource);
+            })
+            .otherwise(function(error) {
+              console.log(error);
+            });
         }
       }
     </script>
