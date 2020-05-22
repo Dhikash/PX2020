@@ -2,7 +2,6 @@
 
 body {
   font-family: helvetica, arial, sans-serif;
-  margin: 2em;
 }
 
 h1 {
@@ -55,4 +54,27 @@ h2 {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+.margin-top-1 {
+  margin-top: 1rem;
+}
+
+.padding-bottom-1 {
+  padding-bottom: 1rem;
+}
+
+.hamburg {
+  position: absolute;
+  color: white;
+  z-index: 2;
+  margin: 1rem;
+}
+
+.fullSize {
+  height: 100vh;
+}
+
+#mySidenav {
+  z-index: 3;
 }
