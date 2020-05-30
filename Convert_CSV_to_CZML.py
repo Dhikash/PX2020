@@ -8,44 +8,96 @@ import csv
 import array
 import fileinput
 import re
-
-flightdir = 'C:\\Users\\dhika\\Documents\\Convert\\Flights'
-csvID = os.listdir(flightdir)
-number_of_flights = len(csvID)
-print(csvID)
+import time
 
 green = (52, 235, 64, 1)
 red = (235, 52, 52, 1)
 orange = (235, 159, 52, 1)
+slope = 8
+
+def colourFromPoints( p1, p2 ):
+	altDifference = p1[2] - p2[2]
+
+	if altDifference > slope:
+		color = list(map(int, red)) # red
+		##print("descending")
+	elif altDifference < -slope:
+		color = list(map(int, green)) # green
+		##print("ascending")
+	else:
+		color = list(map(int, orange)) # orange
+		##print("level flight")
+
+	return color
+
+# now = int( time.time() )
+now = int(1589432155)
+# print (now)
+with open('config.json') as configFile:
+	CONFIG = json.load(configFile)
+
+
+oldestTail= now - CONFIG['opensky']['tailTime']
+activeFile = open( CONFIG['opensky']['active'], 'r' )
+flightDataPath = CONFIG['opensky']['dataFolder']
 
 czmlHeader = {
 		'id': 'document',
-		'name': 'CZML Flight Path Test',
+		'name': 'CZML Flight Path',
 		'version': '1.0'
 	},
 # Put the data in a list 
 flightList = list(czmlHeader) 
 
+for flightLine in activeFile:
+	#print(flightLine)
+	flightData = flightLine.split(',')
+	icao24 = flightData[1]
+	flightTime = int(flightData[0])
+	timeDiff = oldestTail - flightTime
+	# if ( timeDiff>0 ):
+	# 	#print('tail to old')
+	# 	continue
 
-
-# For loop that reads all csv files
-for x in range(number_of_flights):
-	with open(flightdir+"\\"+csvID[x], 'r') as flight_csv:
+	flightFile=os.path.join( flightDataPath, icao24 + ".csv" )
+	with open(flightFile, 'r') as flight_csv:
 		cartDegree = list()
+		flightPoints = list()
 		flight_reader = csv.reader(flight_csv)
 		line_count = 0
+		lastPoint = (0,0,0)
 		for row in flight_reader:
 			if line_count == 0:
 				flightID = row[0]
 				flightName = row[1]
 				line_count +=1
 			else:
-				cartDegree.append (row[2])
-				cartDegree.append (row[1])
-				cartDegree.append (row[3])
-				line_count +=1
-		cartDegreeFloat = list(map(float, cartDegree))		
-	#Flights is JSON format for CZML 
+				pathTime = int( row[0] )
+				timeDiff = oldestTail - pathTime
+				if ( timeDiff<0 ):
+					thisPoint = ( float( row[2] ), float( row[1] ), float( row[3] ) )
+					if (lastPoint != thisPoint):
+						flightPoints.append (thisPoint)
+						cartDegree.append (float(row[2]))
+						cartDegree.append (float(row[1]))
+						cartDegree.append (float(row[3]))
+					lastPoint = thisPoint
+					line_count +=1
+				else:
+					line_count +=1
+					continue
+	if(len(flightPoints) > 0):
+		pass
+	else:
+		print( flightID, 'not active?')
+		continue
+	if(len(flightPoints) > 1):
+		lineColor = colourFromPoints( flightPoints[ len(flightPoints) -2], flightPoints[ len(flightPoints) -1] )
+	else:
+		lineColor = (100, 149, 237, 255)	
+	cartDegreeJSON = list(map(float, cartDegree))		
+			
+	# Flights is JSON format for CZML 
 	# print(flightID)
 	# print(flightName)
 	Flights = {
@@ -54,13 +106,13 @@ for x in range(number_of_flights):
 		"polyline": {
 			"positions": {
 				"cartographicDegrees":[	
-					cartDegreeFloat			
+					cartDegreeJSON			
 					]
 			},
 			"material": {
 				"polylineGlow": {
 					"color": {
-						"rgba": [100, 149, 237, 255]
+						"rgba": [lineColor]
 					},
 					"glowPower": 0.2,
 					"taperPower": 0.3
@@ -76,7 +128,7 @@ for x in range(number_of_flights):
 		"description": "The flight label",
 		
 		"label": {
-			"text": flightName[0],
+			"text": flightName,
 			"font": "11pt Lucida Console",
 			"showBackground": "true",
 			"backgroundColor": {
@@ -88,6 +140,7 @@ for x in range(number_of_flights):
     	},	
 		"position": {
 			"cartographicDegrees": [
+				lastPoint
 			]
 		}
 	}
@@ -97,46 +150,4 @@ for x in range(number_of_flights):
 with open('FlightPath.czml','w') as tempczml:
 	json.dump(flightList,tempczml,indent=4)
 
-# tempczml = open('temp.czml','r')
-# flightpathczml = open('FlightPath.czml', "w")
-# x = 0
-# y = 0
-# for line in tempczml:
-# 	if re.search("cartographicDegrees", line) and y % 2 == 0:
-# 		cartDegree = list() # cartDegree is a list that will contain all the coordinates
-# 		# print(flightID[x])
-# 		with open(flightdir+"\\"+csvID[x], 'r') as flight_csv:
-# 			# flight_reader = csv.reader(flight_csv)
-# 			# line_count = 0
-# 			# for row in flight_reader:
-# 			# 	if line_count == 0:
-# 			# 		line_count += 1
-# 			# 	else:
-# 			# 		cartDegree.append (row[2])
-# 			# 		cartDegree.append (row[1])
-# 			# 		cartDegree.append (row[3])
-# 			# 		line_count += 1
-# 			# print(cartDegree) 
-# 			# cartDegree is a list of coordinates ('100,200,3000', '110,200,3300') ('x,y,z','x,y,z') 		
-# 			cartDegreeString = list(map(float, cartDegree)) 
-# 			# print(cartDegreeString) 
-# 			# cartDegreeString joins the list of coordinates into 1 string separated by ',' i.e. (100,200,3000,110,200,3300) (x,y,z,x,y,z)
-# 			flightpathczml.write("\t\t\t\t\"cartographicDegrees\": [\n" + "\t\t\t\t\t" + cartDegreeString + "\n\t\t\t\t]\n")
-# 			x += 1
-# 			y += 1
-# 			# print(line + "Hey")
-# 			lastlocation = len(cartDegree)
-# 			#print(cartDegree[lastlocation-3])
-# 	elif re.search("cartographicDegrees", line) and y % 2 == 1:
-# 		flightpathczml.write("\t\t\t\t\"cartographicDegrees\": [\n" + "\t\t\t\t\t" + cartDegree[lastlocation-3] + ",\n\t\t\t\t\t" + cartDegree[lastlocation-2] + ",\n\t\t\t\t\t"+ cartDegree[lastlocation-1] + "\n\t\t\t\t]\n")
-# 		cartDegree.clear() #clear the coordinates list
-# 		y +=1
-# 	else:
-# 		flightpathczml.write(line)	
-# 		# print(line)	
 
-# tempczml.close()
-# flightpathczml.close()
-# os.remove("temp.czml")
-
-# print(Flights)
