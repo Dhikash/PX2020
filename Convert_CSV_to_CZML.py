@@ -10,9 +10,9 @@ import fileinput
 import re
 import time
 
-green = (52, 235, 64, 1)
-red = (235, 52, 52, 1)
-orange = (235, 159, 52, 1)
+green = (52, 235, 64, 50)
+red = (235, 52, 52, 50)
+orange = (235, 159, 52, 50)
 slope = 8
 
 def colourFromPoints( p1, p2 ):
@@ -84,7 +84,6 @@ for flightLine in activeFile:
 					lastPoint = thisPoint
 					line_count +=1
 				else:
-					line_count +=1
 					continue
 	if(len(flightPoints) > 0):
 		pass
@@ -96,7 +95,7 @@ for flightLine in activeFile:
 	else:
 		lineColor = (100, 149, 237, 255)	
 	cartDegreeJSON = list(map(float, cartDegree))		
-			
+	flightLabel = str("This is the flight label for flight ID: " + flightID)		
 	# Flights is JSON format for CZML 
 	# print(flightID)
 	# print(flightName)
@@ -105,27 +104,25 @@ for flightLine in activeFile:
 		"name": flightName,
 		"polyline": {
 			"positions": {
-				"cartographicDegrees":[	
-					cartDegreeJSON			
-					]
+				"cartographicDegrees":	cartDegreeJSON							
 			},
 			"material": {
 				"polylineGlow": {
 					"color": {
-						"rgba": [lineColor]
+						"rgba": lineColor
 					},
 					"glowPower": 0.2,
 					"taperPower": 0.3
 					}
 				},
-				"width": 10
+				"width": 15
 			},
 				
 	}
 	Labels = {
 		"id": flightName,
 		"name": flightName,
-		"description": "The flight label",
+		"description": flightLabel,
 		
 		"label": {
 			"text": flightName,
@@ -139,9 +136,9 @@ for flightLine in activeFile:
 			},
     	},	
 		"position": {
-			"cartographicDegrees": [
+			"cartographicDegrees": 
 				lastPoint
-			]
+			
 		}
 	}
 	flightList.append(Flights) #append the current Flight into the flightList
