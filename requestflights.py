@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!C:/Users/dhika/AppData/Local/Programs/Python/Python38-32/python.exe
 
 import requests
 import json
