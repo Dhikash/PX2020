@@ -1,0 +1,18 @@
+{
+    "blackOverlay" : false,
+    "active" : "opensky.csv",
+    "drawBBOX" : false,
+    "bboxColour" : "30ff0000",
+    "bboxRadiusKm" : 111,
+    "bboxSize": 2.0,
+    "centerExpiry": 3600,
+    "centerPath" : "center.json",
+    "opensky" : {
+         "apiKey": "Dhikash:kingswood12",
+      "requestInterval": 10,
+      "active" : "Test/opensky.csv",
+      "dataFolder" : "TestData",
+      "labels" : true,
+      "tailTime" : 600
+    }
+}  

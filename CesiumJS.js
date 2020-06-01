@@ -63,7 +63,7 @@ const updatePlanes = () => {
 const displayPlanes = () => {
     console.log("function called");
     // let planesData = "https://cdn.glitch.com/23e583bd-d43a-4df9-b6a8-e287510e0e72%2Fka2007-opensky.kml?v=1589280285541";
-    let planesData = "https://cdn.glitch.com/23e583bd-d43a-4df9-b6a8-e287510e0e72%2FFlightPath.czml?v=1590065110298";
+    let planesData = "FlightPath.czml";
     var checkbox = document.getElementById("planes");
     // Checkbox state changed.
     if (checkbox.checked) {
@@ -98,8 +98,7 @@ const displayPlanes = () => {
 
 const displaySat = () => {
   console.log("function called");
-  let satData =
-    "https://cdn.glitch.com/23e583bd-d43a-4df9-b6a8-e287510e0e72%2Fsatellite.czml?v=1587354375289";
+  let satData = "satellite.czml";
   var checkbox = document.getElementById("sat");
   // Checkbox state changed.
   if (checkbox.checked) {
