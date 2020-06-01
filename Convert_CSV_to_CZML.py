@@ -30,8 +30,8 @@ def colourFromPoints( p1, p2 ):
 
 	return color
 
-# now = int( time.time() )
-now = int(1589432155)
+now = int( time.time() )
+# now = int(1589432155)
 # print (now)
 with open('config.json') as configFile:
 	CONFIG = json.load(configFile)

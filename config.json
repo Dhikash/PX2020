@@ -8,10 +8,10 @@
     "centerExpiry": 3600,
     "centerPath" : "center.json",
     "opensky" : {
-         "apiKey": "alfski:12opensky12",
+         "apiKey": "Dhikash:kingswood12",
       "requestInterval": 10,
-      "active" : "Active/opensky.csv",
-      "dataFolder" : "Flights",
+      "active" : "Test/opensky.csv",
+      "dataFolder" : "TestData",
       "labels" : true,
       "tailTime" : 600
     }
