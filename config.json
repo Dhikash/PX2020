@@ -10,8 +10,15 @@
     "opensky" : {
          "apiKey": "Dhikash:kingswood12",
       "requestInterval": 10,
-      "active" : "Test/opensky.csv",
-      "dataFolder" : "TestData",
+      "active" : "Active/opensky.csv",
+      "dataFolder" : "FlightsData",
+      "labels" : true,
+      "tailTime" : 600
+    },
+    "satellite" : {
+      "requestInterval": 10,
+      "dataFolder" : "SatelliteData",
+      "active" : "Active/celestrak.csv",
       "labels" : true,
       "tailTime" : 600
     }

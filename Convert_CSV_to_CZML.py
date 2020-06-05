@@ -39,18 +39,19 @@ with open('config.json') as configFile:
 
 
 oldestTail= now - CONFIG['opensky']['tailTime']
-activeFile = open( CONFIG['opensky']['active'], 'r' )
+activeFlightFile = open( CONFIG['opensky']['active'], 'r' )
 flightDataPath = CONFIG['opensky']['dataFolder']
 
+
 czmlHeader = {
-		'id': 'document',
+		'id': 'FlightDoc',
 		'name': 'CZML Flight Path',
 		'version': '1.0'
 	},
 # Put the data in a list 
 flightList = list(czmlHeader) 
 
-for flightLine in activeFile:
+for flightLine in activeFlightFile:
 	#print(flightLine)
 	flightData = flightLine.split(',')
 	icao24 = flightData[1]
@@ -75,6 +76,7 @@ for flightLine in activeFile:
 			else:
 				pathTime = int( row[0] )
 				timeDiff = oldestTail - pathTime
+				# print(timeDiff)
 				if ( timeDiff<0 ):
 					thisPoint = ( float( row[2] ), float( row[1] ), float( row[3] ) )
 					if (lastPoint != thisPoint):
@@ -148,4 +150,106 @@ for flightLine in activeFile:
 with open('FlightPath.czml','w') as tempczml:
 	json.dump(flightList,tempczml,indent=4)
 
+# ------------------------------- SATELLITE DATA BELOW --------------------------------------
+oldestTail= now - CONFIG['satellite']['tailTime']
+activeFile = open( CONFIG['satellite']['active'], 'r' )
+satDataPath = CONFIG['satellite']['dataFolder']
 
+czmlHeader = {
+		'id': 'SatDoc',
+		'name': 'CZML Satellite Path',
+		'version': '1.0'
+	},
+# Put the data in a list 
+satList = list(czmlHeader) 
+
+for satLine in activeFile:
+	#print(satLine)
+	satData = satLine.split(',')
+	satName = satData[1]
+	satTime = int(satData[0])
+	timeDiff = oldestTail - satTime
+	# if ( timeDiff>0 ):
+	# 	#print('tail to old')
+	# 	continue
+
+	satFile=os.path.join( satDataPath, satName + ".csv" )
+	with open(satFile, 'r') as sat_csv:
+		cartDegree = list()
+		satPoints = list()
+		sat_reader = csv.reader(sat_csv)
+		line_count = 0
+		lastPoint = (0,0,0)
+		for row in sat_reader:
+			pathTime = int( row[0] )
+			timeDiff = oldestTail - pathTime
+			# print(timeDiff)
+			thisPoint = ( float( row[2] ), float( row[1] ), float( row[3] ) )
+			# print(thisPoint)
+			if (lastPoint != thisPoint):
+				satPoints.append (thisPoint)
+				cartDegree.append (float(row[2]))
+				cartDegree.append (float(row[1]))
+				cartDegree.append (float(row[3]))
+			lastPoint = thisPoint
+			line_count +=1
+	if(len(satPoints) > 0):
+		pass
+	else:
+		print( satName, 'not active?')
+		continue
+	if(len(satPoints) > 1):
+		lineColor = colourFromPoints( satPoints[ len(satPoints) -2], satPoints[ len(satPoints) -1] )
+	else:
+		lineColor = (100, 149, 237, 255)	
+	cartDegreeJSON = list(map(float, cartDegree))		
+	satLabel = str("This is the flight label for flight ID: " + satName)		
+	# Satellite is JSON format for CZML 
+	
+	Satellite = {
+		"id": satName,
+		"name": satName,
+		"polyline": {
+			"positions": {
+				"cartographicDegrees":	cartDegreeJSON							
+			},
+			"material": {
+				"polylineGlow": {
+					"color": {
+						"rgba": lineColor
+					},
+					"glowPower": 0.2,
+					"taperPower": 0.3
+					}
+				},
+				"width": 25
+			},
+				
+	}
+	Labels = {
+		"id": satName,
+		"name": satName,
+		"description": satLabel,
+		
+		"label": {
+			"text": satName,
+			"font": "11pt Lucida Console",
+			"showBackground": "true",
+			"backgroundColor": {
+				"rgba": [169,169,169,169],
+			},
+			"fillColor": {
+				"rgba": [255, 255, 255, 255],
+			},
+    	},	
+		"position": {
+			"cartographicDegrees": 
+				lastPoint
+			
+		}
+	}
+	satList.append(Satellite) #append the current Flight into the satList
+	satList.append(Labels)
+
+with open('SatellitePath.czml','w') as tempczml:
+	json.dump(satList,tempczml,indent=4)

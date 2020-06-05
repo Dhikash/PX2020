@@ -55,11 +55,11 @@ if opensky["states"] is None:
 timestamp = opensky['time']
 flights = opensky['states']
 
-flightdata_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "TestData"))
+flightdata_path = os.path.abspath(os.path.join(os.path.dirname(__file__), CONFIG['opensky']['dataFolder']))
 
-activeFile = open('Test/opensky.csv', 'w')
+activeFile = open('Active/opensky.csv', 'w')
 portalocker.lock( activeFile, portalocker.LOCK_EX | portalocker.LOCK_NB )
-
+print( "\nFetching flights data")
 print('flights %d request took %dms' % (len(flights), requestDuration) )
 
 for flight in flights:

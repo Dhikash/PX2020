@@ -4,12 +4,45 @@
 // prints "hi" in the browser's dev tools console
 // console.log("hi");
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+
 Cesium.Ion.defaultAccessToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0Mjg2MWMxMS1jOWExLTRjNzctODcyYS1jOTAxMTdlYmM0ZjYiLCJpZCI6MjU2ODYsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1ODY0MDU3MjB9.LZF2OJLOQa9qyjuDzwWGpdZ3S-0TzhruwZsXO0aWzjI";
 let viewer = null;
 let options = {};
 let dataSourcesArray = [];
 let planesInterval = null;
+let camera = viewer.camera;
+
+camera.percentageChanged = 0.001;
+camera.changed.addEventListener(
+  function()
+  {
+   //view rectangle
+   let posUL = cam.pickEllipsoid(new Cesium.Cartesian2(0, 0), Cesium.Ellipsoid.WGS84);
+   let posLR = cam.pickEllipsoid(new Cesium.Cartesian2(viewer.canvas.width, viewer.canvas.height), Cesium.Ellipsoid.WGS84);
+   let posLL = cam.pickEllipsoid(new Cesium.Cartesian2(0, viewer.canvas.height), Cesium.Ellipsoid.WGS84);
+   let posUR = cam.pickEllipsoid(new Cesium.Cartesian2(viewer.canvas.width, 0), Cesium.Ellipsoid.WGS84);
+
+   //north
+   cartographic = ellipsoid.cartesianToCartographic(posUL);
+   maxLat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
+   
+   //east
+   cartesian = rotate(cartesian,rotatee,Math.PI/2); //rotatee now rotater
+   cartographic = ellipsoid.cartesianToCartographic(posUR);
+   maxLon = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
+   
+   //south
+   cartesian = rotate(cartesian,rotatee,Math.PI/2); //rotatee now rotater
+   cartographic = ellipsoid.cartesianToCartographic(posLR);
+   minLat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
+   
+   //west
+   cartesian = rotate(cartesian,rotatee,Math.PI/2); //rotatee now rotater
+   cartographic = ellipsoid.cartesianToCartographic(posLL);
+   minLon = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
+   }.bind(camera));
+
 
 const checkAppliedDataSources = (type) => {
   let found  = false;
@@ -98,7 +131,7 @@ const displayPlanes = () => {
 
 const displaySat = () => {
   console.log("function called");
-  let satData = "satellite.czml";
+  let satData = "SatellitePath.czml";
   var checkbox = document.getElementById("sat");
   // Checkbox state changed.
   if (checkbox.checked) {
