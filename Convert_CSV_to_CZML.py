@@ -44,7 +44,7 @@ flightDataPath = CONFIG['opensky']['dataFolder']
 
 
 czmlHeader = {
-		'id': 'FlightDoc',
+		'id': 'document',
 		'name': 'CZML Flight Path',
 		'version': '1.0'
 	},
@@ -149,14 +149,14 @@ for flightLine in activeFlightFile:
 
 with open('FlightPath.czml','w') as tempczml:
 	json.dump(flightList,tempczml,indent=4)
-
+print("Finished printing Flight Path CZML")
 # ------------------------------- SATELLITE DATA BELOW --------------------------------------
 oldestTail= now - CONFIG['satellite']['tailTime']
 activeFile = open( CONFIG['satellite']['active'], 'r' )
 satDataPath = CONFIG['satellite']['dataFolder']
 
 czmlHeader = {
-		'id': 'SatDoc',
+		'id': 'document',
 		'name': 'CZML Satellite Path',
 		'version': '1.0'
 	},
@@ -199,11 +199,11 @@ for satLine in activeFile:
 		print( satName, 'not active?')
 		continue
 	if(len(satPoints) > 1):
-		lineColor = colourFromPoints( satPoints[ len(satPoints) -2], satPoints[ len(satPoints) -1] )
+		lineColor = (100, 149, 237, 255)
 	else:
 		lineColor = (100, 149, 237, 255)	
 	cartDegreeJSON = list(map(float, cartDegree))		
-	satLabel = str("This is the flight label for flight ID: " + satName)		
+	satLabel = str("This is the satellite label for satellite: " + satName)		
 	# Satellite is JSON format for CZML 
 	
 	Satellite = {
@@ -211,7 +211,7 @@ for satLine in activeFile:
 		"name": satName,
 		"polyline": {
 			"positions": {
-				"cartographicDegrees":	cartDegreeJSON							
+				"cartesian":	cartDegreeJSON							
 			},
 			"material": {
 				"polylineGlow": {
@@ -253,3 +253,4 @@ for satLine in activeFile:
 
 with open('SatellitePath.czml','w') as tempczml:
 	json.dump(satList,tempczml,indent=4)
+print("Finished printing Satellite Path CZML")

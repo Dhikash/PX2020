@@ -13,11 +13,19 @@ import json
 import os
 import requests
 import sys
+import pyproj
+import warnings
 
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 with open('config.json') as configFile:
 	CONFIG = json.load(configFile)
 satellitedata_path = os.path.abspath(os.path.join(os.path.dirname(__file__), CONFIG['satellite']['dataFolder']))
 activeFile = open('Active/celestrak.csv', 'w')
+def converttolla(x, y, z):
+    ecef = pyproj.Proj(proj='geocent', ellps='WGS84', datum='WGS84')
+    lla = pyproj.Proj(proj='latlong', ellps='WGS84', datum='WGS84')
+    lon, lat, alt = pyproj.transform(ecef, lla, x, y, z, radians=False)
+    return (lon, lat, alt)
 
 def generate_csv(sat, sattime, eol_index, us_inc, num_samples, data):
     satname = str(sat)
@@ -40,28 +48,11 @@ def generate_csv(sat, sattime, eol_index, us_inc, num_samples, data):
         # print(timestamp)
         position, v = satellite.propagate(sattime.year, sattime.month, sattime.day, \
                 sattime.hour, sattime.minute, second)
-
-        position_string = ","
-        if (position[0] > 0):
-            position_string += " "
-        position_string += str(position[0]) + ","
-
-        while len(position_string) < 16:
-            position_string += " "
-
-        if (position[1] > 0):
-            position_string += " "
-
-        position_string += str(position[1]) + ","
-
-        while len(position_string) < 31:
-            position_string += " "
-
-        if (position[2] > 0):
-            position_string += " "
-
-        position_string += str(position[2])
         
+        lla = (converttolla(position[0], position[1], position[2]))
+        
+        position_string = (", " + str(lla[0]) + ", " + str(lla[1]) + ", "+ str(lla[2]))
+
         outfile.write(timestamp + position_string + "\n")
         activeFile.write("%s,%s" % (timestamp,satname ) + position_string + "\n")
         sattime = sattime + datetime.timedelta(microseconds=us_inc)
@@ -122,6 +113,6 @@ def main():
         counter += 1
         # print( '.'),
     
-    print( 'satellites %d request took 0ms' % counter)
+    print( 'Fetched %d satellite requests' % counter)
     activeFile.close()
 main()

@@ -60,7 +60,7 @@ flightdata_path = os.path.abspath(os.path.join(os.path.dirname(__file__), CONFIG
 activeFile = open('Active/opensky.csv', 'w')
 portalocker.lock( activeFile, portalocker.LOCK_EX | portalocker.LOCK_NB )
 print( "\nFetching flights data")
-print('flights %d request took %dms' % (len(flights), requestDuration) )
+print('Fetched %d flight requests' % (len(flights)) )
 
 for flight in flights:
 		

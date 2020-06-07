@@ -1,48 +1,33 @@
 [
     {
-        "id": "FlightDoc",
+        "id": "document",
         "name": "CZML Flight Path",
         "version": "1.0"
     },
     {
-        "id": "7c1c6a",
-        "name": "FWC",
+        "id": "7cc466",
+        "name": "8880",
         "polyline": {
             "positions": {
                 "cartographicDegrees": [
-                    151.229,
-                    -33.8419,
-                    472.0,
-                    151.2241,
-                    -33.8424,
-                    457.0,
-                    151.2215,
-                    -33.8439,
-                    449.0,
-                    151.2192,
-                    -33.8482,
-                    449.0,
-                    151.2203,
-                    -33.8524,
-                    441.0,
-                    151.2242,
-                    -33.8554,
-                    449.0,
-                    151.2269,
-                    -33.856,
-                    441.0,
-                    151.2317,
-                    -33.8554,
-                    457.0
+                    150.9782,
+                    -33.9177,
+                    45.0,
+                    150.9757,
+                    -33.9163,
+                    83.0,
+                    150.9787,
+                    -33.918,
+                    68.0
                 ]
             },
             "material": {
                 "polylineGlow": {
                     "color": {
                         "rgba": [
-                            52,
                             235,
-                            64,
+                            52,
+                            52,
                             50
                         ]
                     },
@@ -54,11 +39,11 @@
         }
     },
     {
-        "id": "FWC",
-        "name": "FWC",
-        "description": "This is the flight label for flight ID: 7c1c6a",
+        "id": "8880",
+        "name": "8880",
+        "description": "This is the flight label for flight ID: 7cc466",
         "label": {
-            "text": "FWC",
+            "text": "8880",
             "font": "11pt Lucida Console",
             "showBackground": "true",
             "backgroundColor": {
@@ -80,27 +65,39 @@
         },
         "position": {
             "cartographicDegrees": [
-                151.2317,
-                -33.8554,
-                457.0
+                150.9787,
+                -33.918,
+                68.0
             ]
         }
     },
     {
-        "id": "7c6c3d",
-        "name": "VNZ",
+        "id": "7c7ef0",
+        "name": "CFH21",
         "polyline": {
             "positions": {
                 "cartographicDegrees": [
-                    149.1687,
-                    -33.8587,
-                    2575.0,
-                    149.1617,
-                    -33.8587,
-                    2575.0,
-                    149.1575,
-                    -33.8587,
-                    2575.0
+                    150.7994,
+                    -33.4359,
+                    5631.0,
+                    150.8019,
+                    -33.4272,
+                    5722.0,
+                    150.8041,
+                    -33.4195,
+                    5806.0,
+                    150.8066,
+                    -33.4107,
+                    5905.0,
+                    150.809,
+                    -33.4028,
+                    5989.0,
+                    150.9111,
+                    -33.1446,
+                    6179.0,
+                    150.9176,
+                    -33.1329,
+                    6179.0
                 ]
             },
             "material": {
@@ -121,11 +118,11 @@
         }
     },
     {
-        "id": "VNZ",
-        "name": "VNZ",
-        "description": "This is the flight label for flight ID: 7c6c3d",
+        "id": "CFH21",
+        "name": "CFH21",
+        "description": "This is the flight label for flight ID: 7c7ef0",
         "label": {
-            "text": "VNZ",
+            "text": "CFH21",
             "font": "11pt Lucida Console",
             "showBackground": "true",
             "backgroundColor": {
@@ -147,710 +144,23 @@
         },
         "position": {
             "cartographicDegrees": [
-                149.1575,
-                -33.8587,
-                2575.0
+                150.9176,
+                -33.1329,
+                6179.0
             ]
         }
     },
     {
-        "id": "7c6ae7",
-        "name": "SVY23",
+        "id": "7c617d",
+        "name": "RSCU207",
         "polyline": {
             "positions": {
                 "cartographicDegrees": [
-                    150.9246,
-                    -33.7688,
-                    3055.0,
-                    150.9152,
-                    -33.7687,
-                    3055.0,
-                    150.9097,
-                    -33.7686,
-                    3055.0,
-                    150.901,
-                    -33.7677,
-                    3063.0,
-                    150.8925,
-                    -33.7633,
-                    3063.0,
-                    150.8857,
-                    -33.7582,
-                    3055.0,
-                    150.8818,
-                    -33.7552,
-                    3055.0,
-                    150.874,
-                    -33.7506,
-                    3048.0
-                ]
-            },
-            "material": {
-                "polylineGlow": {
-                    "color": {
-                        "rgba": [
-                            235,
-                            159,
-                            52,
-                            50
-                        ]
-                    },
-                    "glowPower": 0.2,
-                    "taperPower": 0.3
-                }
-            },
-            "width": 25
-        }
-    },
-    {
-        "id": "SVY23",
-        "name": "SVY23",
-        "description": "This is the flight label for flight ID: 7c6ae7",
-        "label": {
-            "text": "SVY23",
-            "font": "11pt Lucida Console",
-            "showBackground": "true",
-            "backgroundColor": {
-                "rgba": [
-                    169,
-                    169,
-                    169,
-                    169
-                ]
-            },
-            "fillColor": {
-                "rgba": [
-                    255,
-                    255,
-                    255,
-                    255
-                ]
-            }
-        },
-        "position": {
-            "cartographicDegrees": [
-                150.874,
-                -33.7506,
-                3048.0
-            ]
-        }
-    },
-    {
-        "id": "89610a",
-        "name": "UAE417",
-        "polyline": {
-            "positions": {
-                "cartographicDegrees": [
-                    150.1453,
-                    -33.6231,
-                    7101.0,
-                    150.1242,
-                    -33.6179,
-                    7200.0,
-                    150.1124,
-                    -33.615,
-                    7269.0,
-                    150.092,
-                    -33.6099,
-                    7353.0,
-                    150.0694,
-                    -33.6042,
-                    7467.0,
-                    150.0482,
-                    -33.5989,
-                    7566.0,
-                    150.0352,
-                    -33.5957,
-                    7620.0,
-                    150.0139,
-                    -33.5903,
-                    7711.0
-                ]
-            },
-            "material": {
-                "polylineGlow": {
-                    "color": {
-                        "rgba": [
-                            52,
-                            235,
-                            64,
-                            50
-                        ]
-                    },
-                    "glowPower": 0.2,
-                    "taperPower": 0.3
-                }
-            },
-            "width": 25
-        }
-    },
-    {
-        "id": "UAE417",
-        "name": "UAE417",
-        "description": "This is the flight label for flight ID: 89610a",
-        "label": {
-            "text": "UAE417",
-            "font": "11pt Lucida Console",
-            "showBackground": "true",
-            "backgroundColor": {
-                "rgba": [
-                    169,
-                    169,
-                    169,
-                    169
-                ]
-            },
-            "fillColor": {
-                "rgba": [
-                    255,
-                    255,
-                    255,
-                    255
-                ]
-            }
-        },
-        "position": {
-            "cartographicDegrees": [
-                150.0139,
-                -33.5903,
-                7711.0
-            ]
-        }
-    },
-    {
-        "id": "7c25db",
-        "name": "HRH",
-        "polyline": {
-            "positions": {
-                "cartographicDegrees": [
-                    151.0421,
-                    -34.1906,
-                    449.0,
-                    151.0448,
-                    -34.1888,
-                    449.0,
-                    151.0487,
-                    -34.1861,
-                    441.0,
-                    151.0487,
-                    -34.1861,
-                    434.0,
-                    151.0555,
-                    -34.1817,
-                    434.0,
-                    151.0644,
-                    -34.1757,
-                    426.0,
-                    151.0686,
-                    -34.1732,
-                    434.0,
-                    151.0739,
-                    -34.1703,
-                    426.0
-                ]
-            },
-            "material": {
-                "polylineGlow": {
-                    "color": {
-                        "rgba": [
-                            235,
-                            159,
-                            52,
-                            50
-                        ]
-                    },
-                    "glowPower": 0.2,
-                    "taperPower": 0.3
-                }
-            },
-            "width": 25
-        }
-    },
-    {
-        "id": "HRH",
-        "name": "HRH",
-        "description": "This is the flight label for flight ID: 7c25db",
-        "label": {
-            "text": "HRH",
-            "font": "11pt Lucida Console",
-            "showBackground": "true",
-            "backgroundColor": {
-                "rgba": [
-                    169,
-                    169,
-                    169,
-                    169
-                ]
-            },
-            "fillColor": {
-                "rgba": [
-                    255,
-                    255,
-                    255,
-                    255
-                ]
-            }
-        },
-        "position": {
-            "cartographicDegrees": [
-                151.0739,
-                -34.1703,
-                426.0
-            ]
-        }
-    },
-    {
-        "id": "7c38ba",
-        "name": "LHO",
-        "polyline": {
-            "positions": {
-                "cartographicDegrees": [
-                    151.0713,
-                    -33.647,
-                    655.0,
-                    151.067,
-                    -33.6514,
-                    647.0,
-                    151.064,
-                    -33.6546,
-                    640.0,
-                    151.0594,
-                    -33.6595,
-                    624.0,
-                    151.055,
-                    -33.6642,
-                    617.0,
-                    151.0502,
-                    -33.6693,
-                    609.0,
-                    151.0482,
-                    -33.6715,
-                    609.0,
-                    151.0435,
-                    -33.6764,
-                    609.0
-                ]
-            },
-            "material": {
-                "polylineGlow": {
-                    "color": {
-                        "rgba": [
-                            235,
-                            159,
-                            52,
-                            50
-                        ]
-                    },
-                    "glowPower": 0.2,
-                    "taperPower": 0.3
-                }
-            },
-            "width": 25
-        }
-    },
-    {
-        "id": "LHO",
-        "name": "LHO",
-        "description": "This is the flight label for flight ID: 7c38ba",
-        "label": {
-            "text": "LHO",
-            "font": "11pt Lucida Console",
-            "showBackground": "true",
-            "backgroundColor": {
-                "rgba": [
-                    169,
-                    169,
-                    169,
-                    169
-                ]
-            },
-            "fillColor": {
-                "rgba": [
-                    255,
-                    255,
-                    255,
-                    255
-                ]
-            }
-        },
-        "position": {
-            "cartographicDegrees": [
-                151.0435,
-                -33.6764,
-                609.0
-            ]
-        }
-    },
-    {
-        "id": "7c60ca",
-        "name": "TEK",
-        "polyline": {
-            "positions": {
-                "cartographicDegrees": [
-                    151.0025,
-                    -33.9313,
-                    91.0
-                ]
-            },
-            "material": {
-                "polylineGlow": {
-                    "color": {
-                        "rgba": [
-                            100,
-                            149,
-                            237,
-                            255
-                        ]
-                    },
-                    "glowPower": 0.2,
-                    "taperPower": 0.3
-                }
-            },
-            "width": 25
-        }
-    },
-    {
-        "id": "TEK",
-        "name": "TEK",
-        "description": "This is the flight label for flight ID: 7c60ca",
-        "label": {
-            "text": "TEK",
-            "font": "11pt Lucida Console",
-            "showBackground": "true",
-            "backgroundColor": {
-                "rgba": [
-                    169,
-                    169,
-                    169,
-                    169
-                ]
-            },
-            "fillColor": {
-                "rgba": [
-                    255,
-                    255,
-                    255,
-                    255
-                ]
-            }
-        },
-        "position": {
-            "cartographicDegrees": [
-                151.0025,
-                -33.9313,
-                91.0
-            ]
-        }
-    },
-    {
-        "id": "7c5c99",
-        "name": "SKR",
-        "polyline": {
-            "positions": {
-                "cartographicDegrees": [
-                    150.8402,
-                    -34.5024,
-                    1112.0
-                ]
-            },
-            "material": {
-                "polylineGlow": {
-                    "color": {
-                        "rgba": [
-                            100,
-                            149,
-                            237,
-                            255
-                        ]
-                    },
-                    "glowPower": 0.2,
-                    "taperPower": 0.3
-                }
-            },
-            "width": 25
-        }
-    },
-    {
-        "id": "SKR",
-        "name": "SKR",
-        "description": "This is the flight label for flight ID: 7c5c99",
-        "label": {
-            "text": "SKR",
-            "font": "11pt Lucida Console",
-            "showBackground": "true",
-            "backgroundColor": {
-                "rgba": [
-                    169,
-                    169,
-                    169,
-                    169
-                ]
-            },
-            "fillColor": {
-                "rgba": [
-                    255,
-                    255,
-                    255,
-                    255
-                ]
-            }
-        },
-        "position": {
-            "cartographicDegrees": [
-                150.8402,
-                -34.5024,
-                1112.0
-            ]
-        }
-    },
-    {
-        "id": "7c5d23",
-        "name": "SOL",
-        "polyline": {
-            "positions": {
-                "cartographicDegrees": [
-                    150.1846,
-                    -33.728,
-                    1958.0,
-                    150.1771,
-                    -33.7291,
-                    1958.0,
-                    150.1728,
-                    -33.7297,
-                    1958.0,
-                    150.1649,
-                    -33.7308,
-                    1958.0,
-                    150.1569,
-                    -33.7319,
-                    1958.0,
-                    150.1492,
-                    -33.733,
-                    1958.0,
-                    150.1446,
-                    -33.7337,
-                    1965.0,
-                    150.137,
-                    -33.7347,
-                    1965.0
-                ]
-            },
-            "material": {
-                "polylineGlow": {
-                    "color": {
-                        "rgba": [
-                            235,
-                            159,
-                            52,
-                            50
-                        ]
-                    },
-                    "glowPower": 0.2,
-                    "taperPower": 0.3
-                }
-            },
-            "width": 25
-        }
-    },
-    {
-        "id": "SOL",
-        "name": "SOL",
-        "description": "This is the flight label for flight ID: 7c5d23",
-        "label": {
-            "text": "SOL",
-            "font": "11pt Lucida Console",
-            "showBackground": "true",
-            "backgroundColor": {
-                "rgba": [
-                    169,
-                    169,
-                    169,
-                    169
-                ]
-            },
-            "fillColor": {
-                "rgba": [
-                    255,
-                    255,
-                    255,
-                    255
-                ]
-            }
-        },
-        "position": {
-            "cartographicDegrees": [
-                150.137,
-                -33.7347,
-                1965.0
-            ]
-        }
-    },
-    {
-        "id": "7c62a5",
-        "name": "TRR",
-        "polyline": {
-            "positions": {
-                "cartographicDegrees": [
-                    150.8823,
-                    -33.9432,
-                    472.0,
-                    150.8858,
-                    -33.9394,
-                    472.0,
-                    150.8878,
-                    -33.9376,
-                    472.0,
-                    150.8922,
-                    -33.9343,
-                    472.0,
-                    150.8969,
-                    -33.9314,
-                    472.0,
-                    150.9017,
-                    -33.9288,
-                    472.0,
-                    150.9044,
-                    -33.9274,
-                    472.0,
-                    150.9093,
-                    -33.9249,
-                    472.0
-                ]
-            },
-            "material": {
-                "polylineGlow": {
-                    "color": {
-                        "rgba": [
-                            235,
-                            159,
-                            52,
-                            50
-                        ]
-                    },
-                    "glowPower": 0.2,
-                    "taperPower": 0.3
-                }
-            },
-            "width": 25
-        }
-    },
-    {
-        "id": "TRR",
-        "name": "TRR",
-        "description": "This is the flight label for flight ID: 7c62a5",
-        "label": {
-            "text": "TRR",
-            "font": "11pt Lucida Console",
-            "showBackground": "true",
-            "backgroundColor": {
-                "rgba": [
-                    169,
-                    169,
-                    169,
-                    169
-                ]
-            },
-            "fillColor": {
-                "rgba": [
-                    255,
-                    255,
-                    255,
-                    255
-                ]
-            }
-        },
-        "position": {
-            "cartographicDegrees": [
-                150.9093,
-                -33.9249,
-                472.0
-            ]
-        }
-    },
-    {
-        "id": "7c671d",
-        "name": "",
-        "polyline": {
-            "positions": {
-                "cartographicDegrees": [
-                    150.2319,
-                    -34.4972,
-                    2270.0,
-                    150.2375,
-                    -34.4932,
-                    2278.0,
-                    150.2399,
-                    -34.4915,
-                    2286.0,
-                    150.2451,
-                    -34.488,
-                    2286.0
-                ]
-            },
-            "material": {
-                "polylineGlow": {
-                    "color": {
-                        "rgba": [
-                            235,
-                            159,
-                            52,
-                            50
-                        ]
-                    },
-                    "glowPower": 0.2,
-                    "taperPower": 0.3
-                }
-            },
-            "width": 25
-        }
-    },
-    {
-        "id": "",
-        "name": "",
-        "description": "This is the flight label for flight ID: 7c671d",
-        "label": {
-            "text": "",
-            "font": "11pt Lucida Console",
-            "showBackground": "true",
-            "backgroundColor": {
-                "rgba": [
-                    169,
-                    169,
-                    169,
-                    169
-                ]
-            },
-            "fillColor": {
-                "rgba": [
-                    255,
-                    255,
-                    255,
-                    255
-                ]
-            }
-        },
-        "position": {
-            "cartographicDegrees": [
-                150.2451,
-                -34.488,
-                2286.0
-            ]
-        }
-    },
-    {
-        "id": "7c30bf",
-        "name": "VHJWX",
-        "polyline": {
-            "positions": {
-                "cartographicDegrees": [
-                    151.1715,
-                    -34.0619,
-                    175.0,
-                    151.1746,
-                    -34.0694,
-                    175.0,
-                    151.1702,
-                    -34.0921,
+                    150.9936,
+                    -33.8918,
+                    243.0,
+                    150.9922,
+                    -33.8951,
                     243.0
                 ]
             },
@@ -858,9 +168,9 @@
                 "polylineGlow": {
                     "color": {
                         "rgba": [
-                            52,
                             235,
-                            64,
+                            159,
+                            52,
                             50
                         ]
                     },
@@ -872,11 +182,11 @@
         }
     },
     {
-        "id": "VHJWX",
-        "name": "VHJWX",
-        "description": "This is the flight label for flight ID: 7c30bf",
+        "id": "RSCU207",
+        "name": "RSCU207",
+        "description": "This is the flight label for flight ID: 7c617d",
         "label": {
-            "text": "VHJWX",
+            "text": "RSCU207",
             "font": "11pt Lucida Console",
             "showBackground": "true",
             "backgroundColor": {
@@ -898,24 +208,197 @@
         },
         "position": {
             "cartographicDegrees": [
-                151.1702,
-                -34.0921,
+                150.9922,
+                -33.8951,
                 243.0
             ]
         }
     },
     {
-        "id": "7c2da9",
-        "name": "JAZ",
+        "id": "7c01c0",
+        "name": "AM223",
         "polyline": {
             "positions": {
                 "cartographicDegrees": [
-                    150.7051,
-                    -34.0138,
+                    151.4163,
+                    -33.6118,
+                    5570.0,
+                    151.4177,
+                    -33.6014,
+                    5570.0,
+                    151.4191,
+                    -33.5919,
+                    5570.0,
+                    151.4209,
+                    -33.5804,
+                    5570.0,
+                    151.4224,
+                    -33.5701,
+                    5570.0,
+                    151.4587,
+                    -33.3016,
+                    5570.0,
+                    151.4603,
+                    -33.2898,
+                    5570.0
+                ]
+            },
+            "material": {
+                "polylineGlow": {
+                    "color": {
+                        "rgba": [
+                            235,
+                            159,
+                            52,
+                            50
+                        ]
+                    },
+                    "glowPower": 0.2,
+                    "taperPower": 0.3
+                }
+            },
+            "width": 25
+        }
+    },
+    {
+        "id": "AM223",
+        "name": "AM223",
+        "description": "This is the flight label for flight ID: 7c01c0",
+        "label": {
+            "text": "AM223",
+            "font": "11pt Lucida Console",
+            "showBackground": "true",
+            "backgroundColor": {
+                "rgba": [
+                    169,
+                    169,
+                    169,
+                    169
+                ]
+            },
+            "fillColor": {
+                "rgba": [
+                    255,
+                    255,
+                    255,
+                    255
+                ]
+            }
+        },
+        "position": {
+            "cartographicDegrees": [
+                151.4603,
+                -33.2898,
+                5570.0
+            ]
+        }
+    },
+    {
+        "id": "7c28bb",
+        "name": "IBX",
+        "polyline": {
+            "positions": {
+                "cartographicDegrees": [
+                    150.9857,
+                    -33.9364,
+                    327.0,
+                    150.98,
+                    -33.9338,
+                    327.0,
+                    150.975,
+                    -33.9313,
+                    327.0,
+                    150.9693,
+                    -33.9286,
+                    320.0,
+                    150.9652,
+                    -33.9264,
+                    297.0,
+                    150.9706,
+                    -33.9308,
                     350.0,
-                    150.7066,
-                    -34.0172,
-                    320.0
+                    150.965,
+                    -33.929,
+                    358.0
+                ]
+            },
+            "material": {
+                "polylineGlow": {
+                    "color": {
+                        "rgba": [
+                            235,
+                            159,
+                            52,
+                            50
+                        ]
+                    },
+                    "glowPower": 0.2,
+                    "taperPower": 0.3
+                }
+            },
+            "width": 25
+        }
+    },
+    {
+        "id": "IBX",
+        "name": "IBX",
+        "description": "This is the flight label for flight ID: 7c28bb",
+        "label": {
+            "text": "IBX",
+            "font": "11pt Lucida Console",
+            "showBackground": "true",
+            "backgroundColor": {
+                "rgba": [
+                    169,
+                    169,
+                    169,
+                    169
+                ]
+            },
+            "fillColor": {
+                "rgba": [
+                    255,
+                    255,
+                    255,
+                    255
+                ]
+            }
+        },
+        "position": {
+            "cartographicDegrees": [
+                150.965,
+                -33.929,
+                358.0
+            ]
+        }
+    },
+    {
+        "id": "781416",
+        "name": "CES735",
+        "polyline": {
+            "positions": {
+                "cartographicDegrees": [
+                    150.9933,
+                    -32.9547,
+                    3741.0,
+                    150.9959,
+                    -32.9693,
+                    3703.0,
+                    150.9983,
+                    -32.9825,
+                    3672.0,
+                    151.0009,
+                    -32.997,
+                    3627.0,
+                    151.0032,
+                    -33.01,
+                    3573.0,
+                    151.0568,
+                    -33.3214,
+                    2575.0,
+                    151.059,
+                    -33.3351,
+                    2537.0
                 ]
             },
             "material": {
@@ -936,11 +419,11 @@
         }
     },
     {
-        "id": "JAZ",
-        "name": "JAZ",
-        "description": "This is the flight label for flight ID: 7c2da9",
+        "id": "CES735",
+        "name": "CES735",
+        "description": "This is the flight label for flight ID: 781416",
         "label": {
-            "text": "JAZ",
+            "text": "CES735",
             "font": "11pt Lucida Console",
             "showBackground": "true",
             "backgroundColor": {
@@ -962,9 +445,386 @@
         },
         "position": {
             "cartographicDegrees": [
-                150.7066,
-                -34.0172,
-                320.0
+                151.059,
+                -33.3351,
+                2537.0
+            ]
+        }
+    },
+    {
+        "id": "7c0838",
+        "name": "BWQ",
+        "polyline": {
+            "positions": {
+                "cartographicDegrees": [
+                    150.8141,
+                    -33.8313,
+                    1516.0,
+                    150.8079,
+                    -33.8297,
+                    1546.0,
+                    150.8015,
+                    -33.8281,
+                    1577.0,
+                    150.7952,
+                    -33.8264,
+                    1607.0,
+                    150.789,
+                    -33.8247,
+                    1638.0,
+                    150.6162,
+                    -33.7859,
+                    2484.0,
+                    150.6066,
+                    -33.7834,
+                    2491.0
+                ]
+            },
+            "material": {
+                "polylineGlow": {
+                    "color": {
+                        "rgba": [
+                            235,
+                            159,
+                            52,
+                            50
+                        ]
+                    },
+                    "glowPower": 0.2,
+                    "taperPower": 0.3
+                }
+            },
+            "width": 25
+        }
+    },
+    {
+        "id": "BWQ",
+        "name": "BWQ",
+        "description": "This is the flight label for flight ID: 7c0838",
+        "label": {
+            "text": "BWQ",
+            "font": "11pt Lucida Console",
+            "showBackground": "true",
+            "backgroundColor": {
+                "rgba": [
+                    169,
+                    169,
+                    169,
+                    169
+                ]
+            },
+            "fillColor": {
+                "rgba": [
+                    255,
+                    255,
+                    255,
+                    255
+                ]
+            }
+        },
+        "position": {
+            "cartographicDegrees": [
+                150.6066,
+                -33.7834,
+                2491.0
+            ]
+        }
+    },
+    {
+        "id": "ac50fa",
+        "name": "FDX73",
+        "polyline": {
+            "positions": {
+                "cartographicDegrees": [
+                    151.4176,
+                    -33.8513,
+                    1798.0,
+                    151.4054,
+                    -33.8469,
+                    1752.0,
+                    151.394,
+                    -33.8429,
+                    1684.0,
+                    151.3816,
+                    -33.8384,
+                    1615.0,
+                    151.3707,
+                    -33.8345,
+                    1554.0,
+                    151.1383,
+                    -33.7969,
+                    701.0,
+                    151.1395,
+                    -33.8044,
+                    701.0
+                ]
+            },
+            "material": {
+                "polylineGlow": {
+                    "color": {
+                        "rgba": [
+                            235,
+                            159,
+                            52,
+                            50
+                        ]
+                    },
+                    "glowPower": 0.2,
+                    "taperPower": 0.3
+                }
+            },
+            "width": 25
+        }
+    },
+    {
+        "id": "FDX73",
+        "name": "FDX73",
+        "description": "This is the flight label for flight ID: ac50fa",
+        "label": {
+            "text": "FDX73",
+            "font": "11pt Lucida Console",
+            "showBackground": "true",
+            "backgroundColor": {
+                "rgba": [
+                    169,
+                    169,
+                    169,
+                    169
+                ]
+            },
+            "fillColor": {
+                "rgba": [
+                    255,
+                    255,
+                    255,
+                    255
+                ]
+            }
+        },
+        "position": {
+            "cartographicDegrees": [
+                151.1395,
+                -33.8044,
+                701.0
+            ]
+        }
+    },
+    {
+        "id": "7c2a34",
+        "name": "CFH3",
+        "polyline": {
+            "positions": {
+                "cartographicDegrees": [
+                    150.9805,
+                    -33.5776,
+                    403.0,
+                    150.9783,
+                    -33.5708,
+                    411.0,
+                    150.976,
+                    -33.5644,
+                    441.0,
+                    150.9739,
+                    -33.5577,
+                    434.0,
+                    150.9719,
+                    -33.551,
+                    434.0,
+                    150.9602,
+                    -33.42,
+                    403.0
+                ]
+            },
+            "material": {
+                "polylineGlow": {
+                    "color": {
+                        "rgba": [
+                            235,
+                            52,
+                            52,
+                            50
+                        ]
+                    },
+                    "glowPower": 0.2,
+                    "taperPower": 0.3
+                }
+            },
+            "width": 25
+        }
+    },
+    {
+        "id": "CFH3",
+        "name": "CFH3",
+        "description": "This is the flight label for flight ID: 7c2a34",
+        "label": {
+            "text": "CFH3",
+            "font": "11pt Lucida Console",
+            "showBackground": "true",
+            "backgroundColor": {
+                "rgba": [
+                    169,
+                    169,
+                    169,
+                    169
+                ]
+            },
+            "fillColor": {
+                "rgba": [
+                    255,
+                    255,
+                    255,
+                    255
+                ]
+            }
+        },
+        "position": {
+            "cartographicDegrees": [
+                150.9602,
+                -33.42,
+                403.0
+            ]
+        }
+    },
+    {
+        "id": "7c4487",
+        "name": "PE524",
+        "polyline": {
+            "positions": {
+                "cartographicDegrees": [
+                    151.4915,
+                    -32.6334,
+                    4968.0,
+                    151.4859,
+                    -32.6448,
+                    4968.0
+                ]
+            },
+            "material": {
+                "polylineGlow": {
+                    "color": {
+                        "rgba": [
+                            235,
+                            159,
+                            52,
+                            50
+                        ]
+                    },
+                    "glowPower": 0.2,
+                    "taperPower": 0.3
+                }
+            },
+            "width": 25
+        }
+    },
+    {
+        "id": "PE524",
+        "name": "PE524",
+        "description": "This is the flight label for flight ID: 7c4487",
+        "label": {
+            "text": "PE524",
+            "font": "11pt Lucida Console",
+            "showBackground": "true",
+            "backgroundColor": {
+                "rgba": [
+                    169,
+                    169,
+                    169,
+                    169
+                ]
+            },
+            "fillColor": {
+                "rgba": [
+                    255,
+                    255,
+                    255,
+                    255
+                ]
+            }
+        },
+        "position": {
+            "cartographicDegrees": [
+                151.4859,
+                -32.6448,
+                4968.0
+            ]
+        }
+    },
+    {
+        "id": "7c47ce",
+        "name": "AE855",
+        "polyline": {
+            "positions": {
+                "cartographicDegrees": [
+                    149.853,
+                    -33.6929,
+                    2171.0,
+                    149.8546,
+                    -33.6935,
+                    2171.0,
+                    149.8708,
+                    -33.7001,
+                    2179.0,
+                    149.8796,
+                    -33.7037,
+                    2171.0,
+                    149.8883,
+                    -33.7073,
+                    2171.0,
+                    150.1007,
+                    -33.7931,
+                    2171.0,
+                    150.1094,
+                    -33.7963,
+                    2171.0
+                ]
+            },
+            "material": {
+                "polylineGlow": {
+                    "color": {
+                        "rgba": [
+                            235,
+                            159,
+                            52,
+                            50
+                        ]
+                    },
+                    "glowPower": 0.2,
+                    "taperPower": 0.3
+                }
+            },
+            "width": 25
+        }
+    },
+    {
+        "id": "AE855",
+        "name": "AE855",
+        "description": "This is the flight label for flight ID: 7c47ce",
+        "label": {
+            "text": "AE855",
+            "font": "11pt Lucida Console",
+            "showBackground": "true",
+            "backgroundColor": {
+                "rgba": [
+                    169,
+                    169,
+                    169,
+                    169
+                ]
+            },
+            "fillColor": {
+                "rgba": [
+                    255,
+                    255,
+                    255,
+                    255
+                ]
+            }
+        },
+        "position": {
+            "cartographicDegrees": [
+                150.1094,
+                -33.7963,
+                2171.0
             ]
         }
     }
