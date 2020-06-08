@@ -22,15 +22,22 @@ with open('config.json') as configFile:
 satellitedata_path = os.path.abspath(os.path.join(os.path.dirname(__file__), CONFIG['satellite']['dataFolder']))
 activeFile = open('Active/celestrak.csv', 'w')
 def converttolla(x, y, z):
+    x = x*1000
+    y = y*1000
+    z = z*1000
     ecef = pyproj.Proj(proj='geocent', ellps='WGS84', datum='WGS84')
     lla = pyproj.Proj(proj='latlong', ellps='WGS84', datum='WGS84')
     lon, lat, alt = pyproj.transform(ecef, lla, x, y, z, radians=False)
-    return (lon, lat, alt)
+    
+    return  (lon, lat, alt)
 
 def generate_csv(sat, sattime, eol_index, us_inc, num_samples, data):
     satname = str(sat)
+    if (satname == "b'ISS DEB'"):
+        return()
     output_filename = os.path.join(satellitedata_path, satname  + '.csv' )
-
+    datasssss = str(data)
+    # print (datasssss)
     outfile = open(output_filename, "a")
 
     line1_index = eol_index + 1
@@ -51,9 +58,10 @@ def generate_csv(sat, sattime, eol_index, us_inc, num_samples, data):
         
         lla = (converttolla(position[0], position[1], position[2]))
         
-        position_string = (", " + str(lla[0]) + ", " + str(lla[1]) + ", "+ str(lla[2]))
 
-        outfile.write(timestamp + position_string + "\n")
+        position_string = (", " + str(lla[1]) + ", " + str(lla[0]) + ", "+ str(int(lla[2])))
+        # test = (", " + str(position[0]) + ", " + str(position[1]) + ", "+ str(position[2]))
+        outfile.write(timestamp + position_string  + "\n")
         activeFile.write("%s,%s" % (timestamp,satname ) + position_string + "\n")
         sattime = sattime + datetime.timedelta(microseconds=us_inc)
     outfile.close()
@@ -104,15 +112,16 @@ def main():
 
     print( "\nFetching satellites data")
     counter = int(0)
+    prevsat = str()
     while(eol_index < len(data)):
         sat = data[(eol_index-25):eol_index].strip()
-        # print(len(sat))
+        
         generate_csv(sat, time, eol_index, us_inc, num_samples, data)
 
         eol_index = eol_index + 71 + 71 + 26
         counter += 1
         # print( '.'),
     
-    print( 'Fetched %d satellite requests' % counter)
+    print( 'Fetched %d satellite requests\n' % counter)
     activeFile.close()
 main()

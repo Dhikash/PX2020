@@ -211,7 +211,7 @@ for satLine in activeFile:
 		"name": satName,
 		"polyline": {
 			"positions": {
-				"cartesian":	cartDegreeJSON							
+				"cartographicDegrees":	cartDegreeJSON							
 			},
 			"material": {
 				"polylineGlow": {
@@ -222,7 +222,7 @@ for satLine in activeFile:
 					"taperPower": 0.3
 					}
 				},
-				"width": 25
+				"width": 10
 			},
 				
 	}
