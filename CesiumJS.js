@@ -11,38 +11,7 @@ let viewer = null;
 let options = {};
 let dataSourcesArray = [];
 let planesInterval = null;
-let camera = viewer.camera;
-
-camera.percentageChanged = 0.001;
-camera.changed.addEventListener(
-  function()
-  {
-   //view rectangle
-   let posUL = cam.pickEllipsoid(new Cesium.Cartesian2(0, 0), Cesium.Ellipsoid.WGS84);
-   let posLR = cam.pickEllipsoid(new Cesium.Cartesian2(viewer.canvas.width, viewer.canvas.height), Cesium.Ellipsoid.WGS84);
-   let posLL = cam.pickEllipsoid(new Cesium.Cartesian2(0, viewer.canvas.height), Cesium.Ellipsoid.WGS84);
-   let posUR = cam.pickEllipsoid(new Cesium.Cartesian2(viewer.canvas.width, 0), Cesium.Ellipsoid.WGS84);
-
-   //north
-   cartographic = ellipsoid.cartesianToCartographic(posUL);
-   maxLat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
-   
-   //east
-   cartesian = rotate(cartesian,rotatee,Math.PI/2); //rotatee now rotater
-   cartographic = ellipsoid.cartesianToCartographic(posUR);
-   maxLon = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
-   
-   //south
-   cartesian = rotate(cartesian,rotatee,Math.PI/2); //rotatee now rotater
-   cartographic = ellipsoid.cartesianToCartographic(posLR);
-   minLat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
-   
-   //west
-   cartesian = rotate(cartesian,rotatee,Math.PI/2); //rotatee now rotater
-   cartographic = ellipsoid.cartesianToCartographic(posLL);
-   minLon = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
-   }.bind(camera));
-
+let satInterval = null;
 
 const checkAppliedDataSources = (type) => {
   let found  = false;
@@ -91,6 +60,16 @@ const obj = item => {
 
 const updatePlanes = () => {
   console.log('interval test');
+  let src = checkAppliedDataSources('planes');
+  viewer.dataSources.remove(src.item.data);
+  let planesData = "FlightPath.czml";
+  viewer.dataSources.add(Cesium.CzmlDataSource.load(planesData))
+}
+
+const updateSat = () => {
+  console.log('interval test');
+  let satData = "SatellitePath.czml";
+  viewer.dataSources.add(Cesium.CzmlDataSource.load(satData))
 }
 
 const displayPlanes = () => {
@@ -109,10 +88,10 @@ const displayPlanes = () => {
             data: datasource
           };
           dataSourcesArray.push(tmpItm);
-          viewer.flyTo(datasource);
-          viewer.zoomTo(datasource);
+          // viewer.flyTo(datasource);
+          // viewer.zoomTo(datasource);
           console.log('dataSourcesArray', dataSourcesArray);
-          planesInterval = setInterval(updatePlanes, 30000);
+          planesInterval = setInterval(updatePlanes, 10000);
       });
       //}
     } else {
@@ -144,9 +123,10 @@ const displaySat = () => {
           data: datasource
         };
         dataSourcesArray.push(tmpItm);
-        viewer.flyTo(datasource);
-        viewer.zoomTo(datasource);
+        // viewer.flyTo(datasource);
+        // viewer.zoomTo(datasource);
         console.log('dataSourcesArray', dataSourcesArray);
+        satInterval = setInterval(updateSat, 10000);
     });
     //}
   } else {
@@ -157,6 +137,8 @@ const displaySat = () => {
     if (src != null) {
       viewer.dataSources.remove(src.item.data);
       removeArrDataSource(src.arrIdx);
+      clearInterval(satInterval);
+      satInterval = null;
     }
   }
 };
