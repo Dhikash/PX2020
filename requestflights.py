@@ -1,5 +1,4 @@
-#!C:/Users/dhika/AppData/Local/Programs/Python/Python38-32/python.exe
-
+#!/usr/bin/env python3
 import requests
 import json
 import os

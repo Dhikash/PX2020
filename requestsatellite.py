@@ -1,4 +1,4 @@
-#!C:/Users/dhika/AppData/Local/Programs/Python/Python38-32/python.exe
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # Copyright Colton Riedel (2019)
