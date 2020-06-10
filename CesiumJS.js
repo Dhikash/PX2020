@@ -59,17 +59,38 @@ const obj = item => {
 };
 
 const updatePlanes = () => {
-  console.log('interval test');
+  console.log('flight interval test');
   let src = checkAppliedDataSources('planes');
+  console.log('src', src);
   viewer.dataSources.remove(src.item.data);
+  removeArrDataSource(src.arrIdx);
   let planesData = "FlightPath.czml";
-  viewer.dataSources.add(Cesium.CzmlDataSource.load(planesData))
+  viewer.dataSources.add(Cesium.CzmlDataSource.load(planesData)).then(datasource => {
+          let tmpItm = {
+            type: 'planes',
+            data: datasource
+          };
+          dataSourcesArray.push(tmpItm);
+    })
+  }
+const updateBoundingBox = () => {
+  console.log('interval test');
+  
 }
 
 const updateSat = () => {
-  console.log('interval test');
+  console.log('sat interval test');
+  let src = checkAppliedDataSources('satelite');
+  console.log('src', src);
+  viewer.dataSources.remove(src.item.data);
   let satData = "SatellitePath.czml";
-  viewer.dataSources.add(Cesium.CzmlDataSource.load(satData))
+  viewer.dataSources.add(Cesium.CzmlDataSource.load(satData)).then(datasource => {
+          let tmpItm = {
+            type: 'satelite',
+            data: datasource
+          };
+          dataSourcesArray.push(tmpItm);
+    })
 }
 
 const displayPlanes = () => {
@@ -88,8 +109,8 @@ const displayPlanes = () => {
             data: datasource
           };
           dataSourcesArray.push(tmpItm);
-          // viewer.flyTo(datasource);
-          // viewer.zoomTo(datasource);
+          viewer.flyTo(datasource);
+          viewer.zoomTo(datasource);
           console.log('dataSourcesArray', dataSourcesArray);
           planesInterval = setInterval(updatePlanes, 10000);
       });
@@ -123,10 +144,10 @@ const displaySat = () => {
           data: datasource
         };
         dataSourcesArray.push(tmpItm);
-        // viewer.flyTo(datasource);
-        // viewer.zoomTo(datasource);
+        viewer.flyTo(datasource);
+        viewer.zoomTo(datasource);
         console.log('dataSourcesArray', dataSourcesArray);
-        satInterval = setInterval(updateSat, 10000);
+        satInterval = setInterval(updateSat, 30000);
     });
     //}
   } else {

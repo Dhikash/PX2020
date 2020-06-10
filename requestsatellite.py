@@ -32,8 +32,8 @@ def converttolla(x, y, z):
     return  (lon, lat, alt)
 
 def generate_csv(sat, sattime, eol_index, us_inc, num_samples, data):
-    satname = str(sat)
-    if (satname == "b'ISS DEB'"):
+    satname = str(sat.decode("utf-8"))
+    if (satname == "ISS DEB"):
         return()
     output_filename = os.path.join(satellitedata_path, satname  + '.csv' )
     datasssss = str(data)
@@ -120,6 +120,8 @@ def main():
 
         eol_index = eol_index + 71 + 71 + 26
         counter += 1
+        if (counter == 20):
+            break
         # print( '.'),
     
     print( 'Fetched %d satellite requests\n' % counter)
