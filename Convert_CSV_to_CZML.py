@@ -118,7 +118,7 @@ for flightLine in activeFlightFile:
 					"taperPower": 0.3
 					}
 				},
-				"width": 25
+				"width": 10
 			},
 				
 	}
